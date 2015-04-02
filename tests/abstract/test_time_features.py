@@ -5,11 +5,14 @@ import pandas as pd
 from code.feature_engineering.event_features import event_features 
 
 from tests import engine, NUM_USERS, NUM_CLEAN_USERS, execute_sql, check_one_row_per_user
+from unittest import TestCase
 
-c = event_features("events_all","")
-
-#c = event_features("first_session_events","frst_")
-#c = event_features("second_day_events","scnd_")
+## TODO: the tests here are for "events_all" table only, they check nothing
+# about first and session tables
+# Need to write tests for first and second.
+class TimeFeaturesTestBaseClass(TestCase):
+    c = None
+     __test__ = False # to tell nose this is an abstract test class
 
 def test_create_time_to_x_day_totals():
     execute_sql(c.create_time_to_x_day_totals)

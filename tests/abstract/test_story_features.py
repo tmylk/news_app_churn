@@ -8,9 +8,12 @@ from tests import engine, NUM_USERS, NUM_CLEAN_USERS, execute_sql, check_one_row
 
 import tests
 from all_features_user_tests import create_agg_feat_table
+from unittest import TestCase
 
-c = event_features("events_all","")
-#c = event_features("first_session_events","frst_")
+
+class StoryFeaturesTestBaseClass(TestCase):
+    c = None
+     __test__ = False # to tell nose this is an abstract test class
 
 
 
