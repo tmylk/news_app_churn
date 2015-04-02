@@ -9,7 +9,9 @@
 Run in bash:
 
 nosetests tests:core:tests_main_features
-nosetests tests:events_all
+nosetests tests:events_all:test_event_features
+nosetests tests:events_all:test_time_features
+nosetests tests:events_all:all_features_user_tests
 
 If the data is for the same period as my analysis then all the tests should pass. (I wrote these tests as I was writing SQL queries to extract features from the table containing all events "events_all".)
 

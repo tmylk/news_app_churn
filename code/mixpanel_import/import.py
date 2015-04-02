@@ -6,7 +6,8 @@ import pandas as pd
 from sqlalchemy import create_engine
 
 # fetches events from mixpanel and stores them in db and csv
-# Credits: it is based on mixpanel python library with a few fixes
+# Based on official mixpanel python library 
+# https://mixpanel.com/site_media/api/v2/mixpanel.py
 
 ENDPOINT = 'https://data.mixpanel.com/api'
 VERSION = '2.0'
