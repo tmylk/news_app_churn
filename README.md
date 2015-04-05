@@ -4,6 +4,11 @@ This is code for my 2 week capstone project at Zipfian Academy.
 
 I analysed customer churn in a mobile news app.
 
+Presentation
+
+![Presentation](https://github.com/tmylk/news_app_churn/news_app_churn.pdf)
+
+
 ## Insights
 
 I found that the company's user engagement metric didn't correspond to retention. I suggested a new metric and implemented it with the developers. See code/model/events_that_retain and code/model/eda_km_curves
