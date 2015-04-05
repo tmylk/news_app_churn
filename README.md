@@ -4,7 +4,7 @@ This is code for my 2 week capstone project at Zipfian Academy.
 
 I analysed customer churn in a mobile news app.
 
-
+See presentation:
 [![Presentation](https://github.com/tmylk/news_app_churn/blob/master/news_app_churn.png)](https://github.com/tmylk/news_app_churn/blob/master/news_app_churn.pdf)
 
 ## Insights
