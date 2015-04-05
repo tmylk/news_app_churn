@@ -5,7 +5,7 @@ import pandas as pd
 from code.feature_engineering import features as c
 from helpers import NUM_CLEAN_USERS, NUM_USERS, NUM_COLS_ALL_FEATURES
 
-# All events are used in these tests
+# All events are used in these tests i.e. full raw_copy not cut by time
 
 
 def test_one():
@@ -137,9 +137,9 @@ def test_create_first_events():
     n.assert_equal(len(df_test), 1)
     n.assert_equal(len(df_test.columns), 4)
 
-#  os |    $os    | $ip |             distinct_id              |  event_type  | new user | result  | first_seen_ts
-# ----+-----------+-----+--------------------------------------+--------------+----------+---------+---------------
-#     | iPhone OS |     | 47b8ff73-433d-4fb9-ad5c-798a8a52fcba | login result | true     | Success |    1421746187
+#  os |    $os    | $ip |             distinct_id              |  event_type  |
+# ----+-----------+-----+--------------------------------------+--------------+
+#     | iPhone OS |     | 47b8ff73-433d-4fb9-ad5c-798a8a52fcba | login result |
     n.assert_equal(df_test.first_event_type.values[0], 'login result')
     cnt = engine.execute("SELECT COUNT(1) FROM " + table).scalar()
     n.assert_true(cnt >= NUM_USERS)
