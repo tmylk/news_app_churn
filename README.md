@@ -4,7 +4,7 @@ This is code for my 2 week capstone project at Zipfian Academy.
 
 I analysed customer churn in a mobile news app.
 
-![Presentation](https://github.com/tmylk/news_app_churn/blob/master/news_app_churn.pdf =100x100)
+![Presentation](https://github.com/tmylk/news_app_churn/blob/master/news_app_churn.pdf)
 
 ## Insights
 
@@ -12,7 +12,7 @@ I found that the company's user engagement metric didn't correspond to retention
 
 I also found which news stories make first time customers come back. Moving from first to second visit was the biggest leak in the funnel at 50%. See code/model/stories_that_retain
 
-## Modelling
+## Modeling
 
 For exploratory data analysis I drew lots of Kaplan-Meier survival curves. To find events that retain I used random forest's feature importance. It gave the insight about problems with the old user engagement metric. 
 
