@@ -28,4 +28,4 @@ Data analysis using python sklearn and lifelines package.
 
 ## Data cleaning
 
-Some user sessions were broken into two or three pieces because of Mixpanel setup. See a blog post on how to avoid it and get consistent user tracking in lev.ghost.io . (Most interesting part is that there is no way to export aliasing events out of MP.)
+Some user sessions were broken into two or three pieces because of Mixpanel setup. See [my blog post](http://lev.ghost.io/2015/04/05/how-to-setup-mixpanel-for-churn-analysis/) on how to avoid it and get consistent user tracking. (Most interesting part is that there is no way to export aliasing events out of MP.)
