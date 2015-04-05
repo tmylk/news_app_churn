@@ -1,6 +1,6 @@
 # news_app_churn
 
-This is code for my capstone project at Zipfian Academy.
+This is code for my 2 week capstone project at Zipfian Academy.
 
 I analysed customer churn in a mobile news app.
 
