@@ -10,24 +10,31 @@ def create_first_100_completion_view():
     (how many hours long it is )
     see model/stories_retain.py
     '''
-    return """DROP TABLE IF EXISTS first_100_completion CASCADE;
+    return """
+    DROP TABLE IF EXISTS first_100_completion CASCADE;
     CREATE TABLE first_100_completion AS
-    SELECT distinct_id, MIN(timestamp) AS first_100_completion_ts
-    FROM events_all
-    WHERE
-        event_type = 'story completion'
-    AND
-        "story completion"='100'
-    GROUP BY distinct_id;"""
+        SELECT
+            distinct_id,
+            MIN(timestamp) AS first_100_completion_ts
+        FROM events_all
+        WHERE
+            event_type = 'story completion'
+        AND
+            "story completion"='100'
+        GROUP BY distinct_id;"""
 
 
 def create_first_seen_first_completion_view():
-    return """DROP TABLE IF EXISTS first_seen_first_completion CASCADE;
+    return """
+    DROP TABLE IF EXISTS first_seen_first_completion CASCADE;
     CREATE TABLE first_seen_first_completion AS
-    SELECT f.distinct_id, f.first_seen_ts, c.first_100_completion_ts
-    FROM first_seen_from_events f
-    LEFT JOIN first_100_completion c
-    ON f.distinct_id = c.distinct_id;"""
+        SELECT 
+            f.distinct_id,
+            f.first_seen_ts,
+            c.first_100_completion_ts
+        FROM first_seen_from_events f
+        LEFT JOIN first_100_completion c
+            ON f.distinct_id = c.distinct_id;"""
 
 
 def cut_events_by_time(view_name, condition):
