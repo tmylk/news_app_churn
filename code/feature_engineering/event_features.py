@@ -165,7 +165,7 @@ class event_features(object):
            SUM(day_count) as agg_day_count,
            AVG(day_count::real) as agg_day_count_avg
         FROM """ + self.event_table_alias + """time_to_x_day_totals
-        WHERE "story completion"=$level$
+        WHERE "story completion"={level}
         GROUP BY distinct_id ,"story completion", "story id";
         """
 
@@ -173,7 +173,7 @@ class event_features(object):
 
         for level in self.levels:
             my_view_name = view_name.replace('$level$', level)
-            my_sql = sql.replace("$level$", level)
+            my_sql = sql.format(level=level)
             queries.append(self.create_view(my_view_name, my_sql))
 
         return ''.join(queries)
