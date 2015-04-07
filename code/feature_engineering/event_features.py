@@ -400,20 +400,8 @@ class event_features(object):
     def create_users_all_stories(self):
         view_name = "users_all_stories"
         tables = {
-            "users_all_static_features": "",
-            self.event_table_alias +
-            "users_all_story_features_0": "",
-            self.event_table_alias +
-            "users_all_story_features_1": "",
-            self.event_table_alias +
-            "users_all_story_features_2": "",
-            self.event_table_alias +
-            "users_all_story_features_3": "",
-            self.event_table_alias +
-            "users_all_story_features_4": "",
-            self.event_table_alias +
-            "users_all_story_features_5": "",
-            self.event_table_alias +
-            "users_all_story_features_6": ""}
+            "users_all_static_features": ""}
+        for i in xrange(7):
+            tables[self.event_table_alias + "users_all_story_features_" + str(i) = ""
         return self.create_view(
             view_name, self.aggregate_all_features(tables, use_star=True))
