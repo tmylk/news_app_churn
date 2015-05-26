@@ -396,20 +396,3 @@ WHERE
     return create_view(view_name, sql)
 
 
-# not used as there are only 2k of these events for XXk registered users.
-# Ask devs more later
-# TODO: glue user sessions based on this event
-
-# def create_logging_in_table():
-#     view_name = 'logging_in_events'
-#     return create_materialized_view(view_name,"""
-#     SELECT 'user id' as 'user id',distinct_id as anonymous_distinct_id
-# FROM events_all WHERE event_type = 'Logging In: User Id';""")
-# def create_glued_events():
-#     view_name = "glued_events"
-#     create_view(view_name,
-#     """SELECT events_all.*, COALESCE(l.'user id', r.distinct_id) as user_id
-#     FROM
-#     events_all r
-#     LEFT JOIN logging_in_events l
-#     ON l.anonymous_distinct_id = r.distinct_id""")

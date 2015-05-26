@@ -165,7 +165,7 @@ class event_features(object):
            SUM(day_count) as agg_day_count,
            AVG(day_count::real) as agg_day_count_avg
         FROM """ + self.event_table_alias + """time_to_x_day_totals
-        WHERE "story completion"=$level$
+        WHERE "story completion"={level}
         GROUP BY distinct_id ,"story completion", "story id";
         """
 
@@ -173,7 +173,7 @@ class event_features(object):
 
         for level in self.levels:
             my_view_name = view_name.replace('$level$', level)
-            my_sql = sql.replace("$level$", level)
+            my_sql = sql.format(level=level)
             queries.append(self.create_view(my_view_name, my_sql))
 
         return ''.join(queries)
@@ -400,20 +400,8 @@ class event_features(object):
     def create_users_all_stories(self):
         view_name = "users_all_stories"
         tables = {
-            "users_all_static_features": "",
-            self.event_table_alias +
-            "users_all_story_features_0": "",
-            self.event_table_alias +
-            "users_all_story_features_1": "",
-            self.event_table_alias +
-            "users_all_story_features_2": "",
-            self.event_table_alias +
-            "users_all_story_features_3": "",
-            self.event_table_alias +
-            "users_all_story_features_4": "",
-            self.event_table_alias +
-            "users_all_story_features_5": "",
-            self.event_table_alias +
-            "users_all_story_features_6": ""}
+            "users_all_static_features": ""}
+        for i in xrange(7):
+            tables[self.event_table_alias + "users_all_story_features_" + str(i) = ""
         return self.create_view(
             view_name, self.aggregate_all_features(tables, use_star=True))

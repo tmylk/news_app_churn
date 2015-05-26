@@ -30,15 +30,15 @@ def down_sample(df_stay):
     random downsample
     '''
     df_majority_class = df_stay[df_stay.stay is False]
-    print df_majority_class.shape
+    
     df_minority_class = df_stay[df_stay.stay is True]
-    print df_minority_class.shape[0]
+    
     size = df_minority_class.shape[0]
 
     rows = np.random.choice(df_majority_class.index.values, size)
-    print rows.shape
+    
     sampled_df_majority_class = df_stay.ix[rows]
-    print sampled_df_majority_class.shape
+    
     return pd.concat([sampled_df_majority_class, df_minority_class])
 
 
